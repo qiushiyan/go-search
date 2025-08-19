@@ -2,11 +2,35 @@
 
 A CLI search engine powered by Gemini AI with intelligent summarization and concurrent query processing.
 
+## Prerequites
+
+You should have environmentals set up for either **Gemini Developer AI** or **Vertex AI**.
+
+**Gemini Developer API:** Set `GOOGLE_API_KEY` as shown below:
+
+```bash
+export GOOGLE_API_KEY='your-api-key'
+```
+
+**Gemini API on Vertex AI:** Set `GOOGLE_GENAI_USE_VERTEXAI`,
+`GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION`, as shown below:
+
+```bash
+export GOOGLE_GENAI_USE_VERTEXAI=true
+export GOOGLE_CLOUD_PROJECT='your-project-id'
+export GOOGLE_CLOUD_LOCATION='us-central1'
+```
+
+
+See https://github.com/googleapis/go-genai for details.
+
+
+
 ## Features
 
 - **Single & Multi-Query Search**: Search one topic or compare multiple topics concurrently
 - **Smart Summaries**: AI-generated 1-3 sentence summaries with actionable insights
-- **Summary-First Output**: Quick overview section before detailed responses  
+- **Summary-First Output**: Quick overview section before detailed responses
 - **Stream Mode**: Real-time results for single queries (multi-query not supported)
 - **Multiple Input Methods**: Positional arguments, single flags, or repeatable flags
 - **JSON Output**: Structured output for integration and automation
@@ -30,7 +54,7 @@ A CLI search engine powered by Gemini AI with intelligent summarization and conc
 ./search -q "query1" -q "query2" -q "query3"
 ```
 
-### Streaming Mode  
+### Streaming Mode
 ```bash
 # Single query streaming only
 ./search -stream "your search query"
@@ -48,7 +72,7 @@ A CLI search engine powered by Gemini AI with intelligent summarization and conc
 ## SEARCH OVERVIEW
 Completed: 2/2 queries
 
-## SUMMARIES  
+## SUMMARIES
 ✓ Go: Statically typed language optimized for concurrent systems and modern development practices
 ✓ Python: Interpreted language emphasizing readability, rapid development, and extensive ecosystem
 
@@ -107,7 +131,7 @@ Returns structured JSON with metadata including success status and timestamps.
 # Custom concurrency settings
 ./search -q "ML" -q "AI" -q "Deep Learning" -workers 2
 
-# Verbose output (flags before positional query)  
+# Verbose output (flags before positional query)
 ./search -v "What is Go programming?"
 
 # Research workflow example
